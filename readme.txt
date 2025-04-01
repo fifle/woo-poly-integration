@@ -2,10 +2,10 @@
 Contributors: hyyan, jonathanmoorebcsorg
 Tags: cms, woocommerce, multilingual, polylang, bilingual, international, language, localization, multilanguage, multilingual, translate, translation
 Requires at least: 5.4
-Stable tag: 1.5.1
-Tested Up To: 5.7.1
+Stable tag: 1.5.2
+Tested Up To: 6.7.2
 WC requires at least: 4.0.0
-WC tested up to: 5.3.0
+WC tested up to: 8.5.2
 Requires PHP: 7.0
 License: MIT
 License URI: https://github.com/hyyan/woo-poly-integration/blob/master/LICENSE
@@ -135,6 +135,10 @@ Just make sure to setup your permalinks , and every thing will be fine , I promi
 6. Control plugin features from its admin page 
 
 == Changelog == 
+
+== 1.5.2 ==
+* Fixed compatibility with WordPress 6.7+ by loading text domain at 'init' action instead of 'plugins_loaded'
+* Updated compatibility with WordPress 6.7.2 and WooCommerce 8.5.2
 
 == 1.5.1 ==
 * fixes #545 keep fields unlocked if products does not exist in default language props mrleemon
@@ -319,7 +323,7 @@ In particular:
 
 1. New translations can now use auto-copy of source language, to help save time translating.
    In future a machine translation will be added.
-	 Copy option covers Product Title, Short Description and Long Description.
+         Copy option covers Product Title, Short Description and Long Description.
    Also when creating a new product, any missing Product Categories, Tags and Attributes are copied,
    to avoid unexpected problems which occur if a translation is saved with missing term translations.
 
@@ -332,25 +336,25 @@ In this case choose how to set up your product attributes as follows:
  - Translated Attribute?  Add in Products\Attributes and turn on Translation in Polylang at:
         Languages\Settings\Custom Taxonomies 
  - Synchronised Attribute? [eg same value in all languages, eg product code, numeric properties] 
-				Add in Products\Attributes and leave Translation turned off in Polyang.
+                                Add in Products\Attributes and leave Translation turned off in Polyang.
  - Different value in each language? add directly to Product as a Custom Product Attribute
 
 
 * Enh: synchronisation for Custom Product Attributes and Global Product Attributes can now be 
        turned on and off independently in 
-			 Settings\WooPoly, Metas List, Attributes Metas, Custom Product Attributes.
+                         Settings\WooPoly, Metas List, Attributes Metas, Custom Product Attributes.
        The fields locker is unlocked for the attribute types which are not synchronized.
 * Fix: Global Product Attributes can now be individually configured in Polylang:  
-			 When Settings\WooPoly Translation attributes is checked then attributes appear in Polylang:
+                         When Settings\WooPoly Translation attributes is checked then attributes appear in Polylang:
        Languages\Settings\Custom Taxonomies lists the individual taxonomies 
-			 Previously all attributes translation were forced on: now they can be selectively turned
+                         Previously all attributes translation were forced on: now they can be selectively turned
        on and off.  This means that there is no longer any need to create dummy translations for 
        untranslateable values such as reference codes and numeric fields.  Fixes #127.
 CHANGE: new Product Attributes are no longer automatically enabled for translation,
        After creating new Attribute, enable Translation in Polylang if needed by checking:
-			 Languages\Settings\Custom Taxonomies 
+                         Languages\Settings\Custom Taxonomies 
 * Enh: Missing Term Translations are now added by default. Fixes #72
-			 Applies to Products\Categories, Products\Tags, Products\Attributes 
+                         Applies to Products\Categories, Products\Tags, Products\Attributes 
        Previously missing term translations caused
 
 * Fixes #123 Fields Locker performance optimisation 

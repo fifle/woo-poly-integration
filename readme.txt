@@ -2,7 +2,7 @@
 Contributors: hyyan, jonathanmoorebcsorg
 Tags: cms, woocommerce, multilingual, polylang, bilingual, international, language, localization, multilanguage, multilingual, translate, translation
 Requires at least: 5.4
-Stable tag: 1.5.2
+Stable tag: 1.5.3
 Tested Up To: 6.7.2
 WC requires at least: 4.0.0
 WC tested up to: 8.5.2
@@ -135,6 +135,10 @@ Just make sure to setup your permalinks , and every thing will be fine , I promi
 6. Control plugin features from its admin page 
 
 == Changelog == 
+
+== 1.5.3 ==
+* Fixed fatal error in LocaleNumbers.php when formatting empty strings
+* Added validation for numeric values before formatting
 
 == 1.5.2 ==
 * Fixed compatibility with WordPress 6.7+ by loading text domain at 'init' action instead of 'plugins_loaded'

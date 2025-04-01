@@ -41,7 +41,7 @@ class LocaleNumbers
      * see https://github.com/hyyan/woo-poly-integration/wiki/Price-Localization for notes
      *
      * @param Array $args   arguments used with wc_price
-     * 		'ex_tax_label'       => false,
+     *          'ex_tax_label'       => false,
      *      'currency'           => '',
      *      'decimal_separator'  => wc_get_price_decimal_separator(),
      *      'thousand_separator' => wc_get_price_thousand_separator(),
@@ -92,9 +92,12 @@ class LocaleNumbers
 
         //don't touch values on admin screens, save as plain number using woo defaults
         if ((!is_admin()) || isset($_REQUEST['get_product_price_by_ajax'])) {
-            $a = new \NumberFormatter(pll_current_language('locale'), \NumberFormatter::DECIMAL);
-            if ($a) {
-                $retval = $a->format($input, \NumberFormatter::TYPE_DOUBLE);
+            // Only format if input is a valid numeric value
+            if ($input !== '' && is_numeric($input)) {
+                $a = new \NumberFormatter(pll_current_language('locale'), \NumberFormatter::DECIMAL);
+                if ($a) {
+                    $retval = $a->format((float)$input, \NumberFormatter::TYPE_DOUBLE);
+                }
             }
         }
         return $retval;

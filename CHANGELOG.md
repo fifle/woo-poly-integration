@@ -1,5 +1,9 @@
 # Changelog
 
+### 1.5.3
+* Fixed fatal error in LocaleNumbers.php when formatting empty strings
+* Added validation for numeric values before formatting
+
 ### 1.5.2
 * Fixed compatibility with WordPress 6.7+ by loading text domain at 'init' action instead of 'plugins_loaded'
 * Updated compatibility with WordPress 6.7.2 and WooCommerce 8.5.2
